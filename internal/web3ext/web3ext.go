@@ -22,9 +22,9 @@ var Modules = map[string]string{
 	"admin":      AdminJs,
 	"chequebook": ChequebookJs,
 	"clique":     CliqueJs,
-	"tpcash":     TpcashJs,
+	"thxash":     ThxashJs,
 	"debug":      DebugJs,
-	"tpc":        TpcJs,
+	"thx":        ThxJs,
 	"miner":      MinerJs,
 	"net":        NetJs,
 	"personal":   PersonalJs,
@@ -118,9 +118,9 @@ web3._extend({
 });
 `
 
-const TpcashJs = `
+const ThxashJs = `
 web3._extend({
-	property: 'tpcash',
+	property: 'thxash',
 	methods: [
 		new web3._extend.Method({
 			name: 'getWork',
@@ -487,9 +487,9 @@ web3._extend({
 });
 `
 
-const TpcJs = `
+const ThxJs = `
 web3._extend({
-	property: 'tpc',
+	property: 'thx',
 	methods: [
 		new web3._extend.Method({
 			name: 'chainId',

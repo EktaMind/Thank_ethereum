@@ -111,7 +111,7 @@ type downloadWriter struct {
 	dstBuf  *bufio.Writer
 	size    int64
 	written int64
-	lastpct int64
+	lasthxt int64
 }
 
 func newDownloadWriter(dst *os.File, size int64) *downloadWriter {
@@ -128,18 +128,18 @@ func (w *downloadWriter) Write(buf []byte) (int, error) {
 	// Report progress.
 	w.written += int64(n)
 	pct := w.written * 10 / w.size * 10
-	if pct != w.lastpct {
-		if w.lastpct != 0 {
+	if pct != w.lasthxt {
+		if w.lasthxt != 0 {
 			fmt.Print("...")
 		}
 		fmt.Print(pct, "%")
-		w.lastpct = pct
+		w.lasthxt = pct
 	}
 	return n, err
 }
 
 func (w *downloadWriter) Close() error {
-	if w.lastpct > 0 {
+	if w.lasthxt > 0 {
 		fmt.Println() // Finish the progress line.
 	}
 	flushErr := w.dstBuf.Flush()

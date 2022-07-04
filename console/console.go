@@ -191,7 +191,7 @@ func (c *Console) initExtensions() error {
 	if err != nil {
 		return fmt.Errorf("api modules: %v", err)
 	}
-	aliases := map[string]struct{}{"tpc": {}, "personal": {}}
+	aliases := map[string]struct{}{"thx": {}, "personal": {}}
 	for api := range apis {
 		if api == "web3" {
 			continue
@@ -305,9 +305,9 @@ func (c *Console) Welcome() {
 	if res, err := c.jsre.Run(`
 		var message = "instance: " + web3.version.node + "\n";
 		try {
-			message += "coinbase: " + tpc.coinbase + "\n";
+			message += "coinbase: " + thx.coinbase + "\n";
 		} catch (err) {}
-		message += "at block: " + tpc.blockNumber + " (" + new Date(1000 * tpc.getBlock(tpc.blockNumber).timestamp) + ")\n";
+		message += "at block: " + thx.blockNumber + " (" + new Date(1000 * thx.getBlock(thx.blockNumber).timestamp) + ")\n";
 		try {
 			message += " datadir: " + admin.datadir + "\n";
 		} catch (err) {}

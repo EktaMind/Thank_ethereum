@@ -1912,17 +1912,17 @@ var unitMap = {
     'gether':       '1000000000000000000000000000',
     'tether':       '1000000000000000000000000000000',
 
-    'notpc':      '0',
-    'femtotpc':   '1000',
-    'picotpc':    '1000000',
-    'nanotpc':    '1000000000',
-    'microtpc':   '1000000000000',
-    'millitpc':   '1000000000000000',
-    'tpc':        '1000000000000000000',
-    'ktpc':       '1000000000000000000000',
-    'mtpc':       '1000000000000000000000000',
-    'gtpc':       '1000000000000000000000000000',
-    'ttpc':       '1000000000000000000000000000000'
+    'nothx':      '0',
+    'femtothx':   '1000',
+    'picothx':    '1000000',
+    'nanothx':    '1000000000',
+    'microthx':   '1000000000000',
+    'millithx':   '1000000000000000',
+    'thx':        '1000000000000000000',
+    'kthx':       '1000000000000000000000',
+    'mthx':       '1000000000000000000000000',
+    'gthx':       '1000000000000000000000000000',
+    'tthx':       '1000000000000000000000000000000'
 };
 
 /**
@@ -2540,7 +2540,7 @@ module.exports={
 
 var RequestManager = require('./web3/requestmanager');
 var Iban = require('./web3/iban');
-var Tpc = require('./web3/methods/tpc');
+var Thx = require('./web3/methods/thx');
 var Debug = require('./web3/methods/debug');
 var Sfc = require('./web3/methods/sfc');
 var Abft = require('./web3/methods/abft');
@@ -2566,7 +2566,7 @@ var BigNumber = require('bignumber.js');
 function Web3 (provider) {
     this._requestManager = new RequestManager(provider);
     this.currentProvider = provider;
-    this.tpc = new Tpc(this);
+    this.thx = new Thx(this);
     this.debug = new Debug(this);
     this.sfc = new Sfc(this);
     this.abft = new Abft(this);
@@ -2667,7 +2667,7 @@ Web3.prototype.createBatch = function () {
 module.exports = Web3;
 
 
-},{"./utils/sha3":19,"./utils/utils":20,"./version.json":21,"./web3/batch":24,"./web3/extend":28,"./web3/httpprovider":32,"./web3/iban":33,"./web3/ipcprovider":34,"./web3/methods/db":37,"./web3/methods/tpc":38,"./web3/methods/debug":380,"./web3/methods/sfc":381,"./web3/methods/abft":382,"./web3/methods/dag":383,"./web3/methods/net":39,"./web3/methods/personal":40,"./web3/methods/shh":41,"./web3/methods/swarm":42,"./web3/property":45,"./web3/requestmanager":46,"./web3/settings":47,"bignumber.js":"bignumber.js"}],23:[function(require,module,exports){
+},{"./utils/sha3":19,"./utils/utils":20,"./version.json":21,"./web3/batch":24,"./web3/extend":28,"./web3/httpprovider":32,"./web3/iban":33,"./web3/ipcprovider":34,"./web3/methods/db":37,"./web3/methods/thx":38,"./web3/methods/debug":380,"./web3/methods/sfc":381,"./web3/methods/abft":382,"./web3/methods/dag":383,"./web3/methods/net":39,"./web3/methods/personal":40,"./web3/methods/shh":41,"./web3/methods/swarm":42,"./web3/property":45,"./web3/requestmanager":46,"./web3/settings":47,"bignumber.js":"bignumber.js"}],23:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -2746,7 +2746,7 @@ AllSolidityEvents.prototype.execute = function (options, callback) {
 
     var o = this.encode(options);
     var formatter = this.decode.bind(this);
-    return new Filter(o, 'tpc', this._requestManager, watches.tpc(), formatter, callback);
+    return new Filter(o, 'thx', this._requestManager, watches.thx(), formatter, callback);
 };
 
 AllSolidityEvents.prototype.attachToContract = function (contract) {
@@ -2884,7 +2884,7 @@ var addFunctionsToContract = function (contract) {
     contract.abi.filter(function (json) {
         return json.type === 'function';
     }).map(function (json) {
-        return new SolidityFunction(contract._tpc, json, contract.address);
+        return new SolidityFunction(contract._thx, json, contract.address);
     }).forEach(function (f) {
         f.attachToContract(contract);
     });
@@ -2902,11 +2902,11 @@ var addEventsToContract = function (contract) {
         return json.type === 'event';
     });
 
-    var All = new AllEvents(contract._tpc._requestManager, events, contract.address);
+    var All = new AllEvents(contract._thx._requestManager, events, contract.address);
     All.attachToContract(contract);
 
     events.map(function (json) {
-        return new SolidityEvent(contract._tpc._requestManager, json, contract.address);
+        return new SolidityEvent(contract._thx._requestManager, json, contract.address);
     }).forEach(function (e) {
         e.attachToContract(contract);
     });
@@ -2926,7 +2926,7 @@ var checkForContractAddress = function(contract, callback){
         callbackFired = false;
 
     // wait for receipt
-    var filter = contract._tpc.filter('latest', function(e){
+    var filter = contract._thx.filter('latest', function(e){
         if (!e && !callbackFired) {
             count++;
 
@@ -2944,10 +2944,10 @@ var checkForContractAddress = function(contract, callback){
 
             } else {
 
-                contract._tpc.getTransactionReceipt(contract.transactionHash, function(e, receipt){
+                contract._thx.getTransactionReceipt(contract.transactionHash, function(e, receipt){
                     if(receipt && !callbackFired) {
 
-                        contract._tpc.getCode(receipt.contractAddress, function(e, code){
+                        contract._thx.getCode(receipt.contractAddress, function(e, code){
                             /*jshint maxcomplexity: 6 */
 
                             if(callbackFired || !code)
@@ -2990,8 +2990,8 @@ var checkForContractAddress = function(contract, callback){
  * @method ContractFactory
  * @param {Array} abi
  */
-var ContractFactory = function (tpc, abi) {
-    this.tpc = tpc;
+var ContractFactory = function (thx, abi) {
+    this.thx = thx;
     this.abi = abi;
 
     /**
@@ -3007,7 +3007,7 @@ var ContractFactory = function (tpc, abi) {
     this.new = function () {
         /*jshint maxcomplexity: 7 */
 
-        var contract = new Contract(this.tpc, this.abi);
+        var contract = new Contract(this.thx, this.abi);
 
         // parse arguments
         var options = {}; // required!
@@ -3039,7 +3039,7 @@ var ContractFactory = function (tpc, abi) {
         if (callback) {
 
             // wait for the contract address and check if the code was deployed
-            this.tpc.sendTransaction(options, function (err, hash) {
+            this.thx.sendTransaction(options, function (err, hash) {
                 if (err) {
                     callback(err);
                 } else {
@@ -3053,7 +3053,7 @@ var ContractFactory = function (tpc, abi) {
                 }
             });
         } else {
-            var hash = this.tpc.sendTransaction(options);
+            var hash = this.thx.sendTransaction(options);
             // add the transaction hash
             contract.transactionHash = hash;
             checkForContractAddress(contract);
@@ -3088,7 +3088,7 @@ var ContractFactory = function (tpc, abi) {
  * otherwise calls callback function (err, contract)
  */
 ContractFactory.prototype.at = function (address, callback) {
-    var contract = new Contract(this.tpc, this.abi, address);
+    var contract = new Contract(this.thx, this.abi, address);
 
     // this functions are not part of prototype,
     // because we don't want to spoil the interface
@@ -3128,8 +3128,8 @@ ContractFactory.prototype.getData = function () {
  * @param {Array} abi
  * @param {Address} contract address
  */
-var Contract = function (tpc, abi, address) {
-    this._tpc = tpc;
+var Contract = function (thx, abi, address) {
+    this._thx = thx;
     this.transactionHash = null;
     this.address = address;
     this.abi = abi;
@@ -3371,7 +3371,7 @@ SolidityEvent.prototype.execute = function (indexed, options, callback) {
 
     var o = this.encode(indexed, options);
     var formatter = this.decode.bind(this);
-    return new Filter(o, 'tpc', this._requestManager, watches.tpc(), formatter, callback);
+    return new Filter(o, 'thx', this._requestManager, watches.thx(), formatter, callback);
 };
 
 /**
@@ -3505,7 +3505,7 @@ var getOptions = function (options, type) {
 
 
     switch(type) {
-        case 'tpc':
+        case 'thx':
 
             // make sure topics, get converted to hex
             options.topics = options.topics || [];
@@ -4319,8 +4319,8 @@ var sha3 = require('../utils/sha3');
 /**
  * This prototype should be used to call/sendTransaction to solidity functions
  */
-var SolidityFunction = function (tpc, json, address) {
-    this._tpc = tpc;
+var SolidityFunction = function (thx, json, address) {
+    this._thx = thx;
     this._inputTypes = json.inputs.map(function (i) {
         return i.type;
     });
@@ -4422,12 +4422,12 @@ SolidityFunction.prototype.call = function () {
 
 
     if (!callback) {
-        var output = this._tpc.call(payload, defaultBlock);
+        var output = this._thx.call(payload, defaultBlock);
         return this.unpackOutput(output);
     }
 
     var self = this;
-    this._tpc.call(payload, defaultBlock, function (error, output) {
+    this._thx.call(payload, defaultBlock, function (error, output) {
         if (error) return callback(error, null);
 
         var unpacked = null;
@@ -4457,10 +4457,10 @@ SolidityFunction.prototype.sendTransaction = function () {
     }
 
     if (!callback) {
-        return this._tpc.sendTransaction(payload);
+        return this._thx.sendTransaction(payload);
     }
 
-    this._tpc.sendTransaction(payload, callback);
+    this._thx.sendTransaction(payload, callback);
 };
 
 /**
@@ -4474,10 +4474,10 @@ SolidityFunction.prototype.estimateGas = function () {
     var payload = this.toPayload(args);
 
     if (!callback) {
-        return this._tpc.estimateGas(payload);
+        return this._thx.estimateGas(payload);
     }
 
-    this._tpc.estimateGas(payload, callback);
+    this._thx.estimateGas(payload, callback);
 };
 
 /**
@@ -5549,7 +5549,7 @@ var uncleCountCall = function (args) {
     return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getUncleCountByBlockHash' : 'eth_getUncleCountByBlockNumber';
 };
 
-function Tpc(web3) {
+function Thx(web3) {
     this._requestManager = web3._requestManager;
 
     var self = this;
@@ -5569,7 +5569,7 @@ function Tpc(web3) {
     this.sendIBANTransaction = transfer.bind(null, this);
 }
 
-Object.defineProperty(Tpc.prototype, 'defaultBlock', {
+Object.defineProperty(Thx.prototype, 'defaultBlock', {
     get: function () {
         return c.defaultBlock;
     },
@@ -5579,7 +5579,7 @@ Object.defineProperty(Tpc.prototype, 'defaultBlock', {
     }
 });
 
-Object.defineProperty(Tpc.prototype, 'defaultAccount', {
+Object.defineProperty(Thx.prototype, 'defaultAccount', {
     get: function () {
         return c.defaultAccount;
     },
@@ -5756,40 +5756,40 @@ var methods = function () {
 
     var getEvent = new Method({
         name: 'getEvent',
-        call: 'tpc_getEvent',
+        call: 'thx_getEvent',
         params: 2
     });
 
     var getEventHeader = new Method({
         name: 'getEventHeader',
-        call: 'tpc_getEventHeader',
+        call: 'thx_getEventHeader',
         params: 1
     });
 
     var getHeads = new Method({
         name: 'getHeads',
-        call: 'tpc_getHeads',
+        call: 'thx_getHeads',
         params: 1,
         inputFormatter: [formatters.inputBlockNumberFormatter]
     });
 
     var getConsensusTime = new Method({
         name: 'getConsensusTime',
-        call: 'tpc_getConsensusTime',
+        call: 'thx_getConsensusTime',
         params: 1,
         outputFormatter: utils.toDecimal
     });
 
     var currentEpoch = new Method({
         name: 'currentEpoch',
-        call: 'tpc_currentEpoch',
+        call: 'thx_currentEpoch',
         params: 0,
         outputFormatter: utils.toDecimal
     });
 
     var getEpochStats = new Method({
         name: 'getEpochStats',
-        call: 'tpc_getEpochStats',
+        call: 'thx_getEpochStats',
         params: 1,
         inputFormatter: [formatters.inputBlockNumberFormatter],
         outputFormatter: formatters.outputEpochStatsFormatter
@@ -5866,28 +5866,28 @@ var properties = function () {
     ];
 };
 
-Tpc.prototype.contract = function (abi) {
+Thx.prototype.contract = function (abi) {
     var factory = new Contract(this, abi);
     return factory;
 };
 
-Tpc.prototype.filter = function (options, callback, filterCreationErrorCallback) {
-    return new Filter(options, 'tpc', this._requestManager, watches.tpc(), formatters.outputLogFormatter, callback, filterCreationErrorCallback);
+Thx.prototype.filter = function (options, callback, filterCreationErrorCallback) {
+    return new Filter(options, 'thx', this._requestManager, watches.thx(), formatters.outputLogFormatter, callback, filterCreationErrorCallback);
 };
 
-Tpc.prototype.namereg = function () {
+Thx.prototype.namereg = function () {
     return this.contract(namereg.global.abi).at(namereg.global.address);
 };
 
-Tpc.prototype.icapNamereg = function () {
+Thx.prototype.icapNamereg = function () {
     return this.contract(namereg.icap.abi).at(namereg.icap.address);
 };
 
-Tpc.prototype.isSyncing = function (callback) {
+Thx.prototype.isSyncing = function (callback) {
     return new IsSyncing(this._requestManager, callback);
 };
 
-module.exports = Tpc;
+module.exports = Thx;
 
 },{"../../utils/config":18,"../../utils/utils":20,"../contract":25,"../filter":29,"../formatters":30,"../iban":33,"../method":36,"../namereg":44,"../property":45,"../syncing":48,"../transfer":49,"./watches":43}],380:[function(require,module,exports){
 /*
@@ -6841,7 +6841,7 @@ module.exports = Swarm;
 var Method = require('../method');
 
 /// @returns an array of objects describing web3.eth.filter api methods
-var tpc = function () {
+var thx = function () {
     var newFilterCall = function (args) {
         var type = args[0];
 
@@ -6919,7 +6919,7 @@ var shh = function () {
 };
 
 module.exports = {
-    tpc: tpc,
+    thx: thx,
     shh: shh
 };
 
@@ -7519,23 +7519,23 @@ var exchangeAbi = require('../contracts/SmartExchange.json');
  * @param {Value} value to be tranfered
  * @param {Function} callback, callback
  */
-var transfer = function (tpc, from, to, value, callback) {
+var transfer = function (thx, from, to, value, callback) {
     var iban = new Iban(to);
     if (!iban.isValid()) {
         throw new Error('invalid iban address');
     }
 
     if (iban.isDirect()) {
-        return transferToAddress(tpc, from, iban.address(), value, callback);
+        return transferToAddress(thx, from, iban.address(), value, callback);
     }
 
     if (!callback) {
-        var address = tpc.icapNamereg().addr(iban.institution());
-        return deposit(tpc, from, address, value, iban.client());
+        var address = thx.icapNamereg().addr(iban.institution());
+        return deposit(thx, from, address, value, iban.client());
     }
 
-    tpc.icapNamereg().addr(iban.institution(), function (err, address) {
-        return deposit(tpc, from, address, value, iban.client(), callback);
+    thx.icapNamereg().addr(iban.institution(), function (err, address) {
+        return deposit(thx, from, address, value, iban.client(), callback);
     });
 
 };
@@ -7549,8 +7549,8 @@ var transfer = function (tpc, from, to, value, callback) {
  * @param {Value} value to be tranfered
  * @param {Function} callback, callback
  */
-var transferToAddress = function (tpc, from, to, value, callback) {
-    return tpc.sendTransaction({
+var transferToAddress = function (thx, from, to, value, callback) {
+    return thx.sendTransaction({
         address: to,
         from: from,
         value: value
@@ -7567,9 +7567,9 @@ var transferToAddress = function (tpc, from, to, value, callback) {
  * @param {String} client unique identifier
  * @param {Function} callback, callback
  */
-var deposit = function (tpc, from, to, value, client, callback) {
+var deposit = function (thx, from, to, value, client, callback) {
     var abi = exchangeAbi;
-    return tpc.contract(abi).at(to).deposit(client, {
+    return thx.contract(abi).at(to).deposit(client, {
         from: from,
         value: value
     }, callback);
