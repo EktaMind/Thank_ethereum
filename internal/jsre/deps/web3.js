@@ -926,7 +926,7 @@ var SolidityParam = require('./param');
  * @returns {SolidityParam}
  */
 var formatInputInt = function (value) {
-    BigNumber.config(c.TPC_BIGNUMBER_ROUNDING_MODE);
+    BigNumber.config(c.THX_BIGNUMBER_ROUNDING_MODE);
     var result = utils.padLeft(utils.toTwosComplement(value).toString(16), 64);
     return new SolidityParam(result);
 };
@@ -1758,10 +1758,10 @@ if (typeof XMLHttpRequest === 'undefined') {
  */
 
 
-/// required to define TPC_BIGNUMBER_ROUNDING_MODE
+/// required to define THX_BIGNUMBER_ROUNDING_MODE
 var BigNumber = require('bignumber.js');
 
-var TPC_UNITS = [
+var THX_UNITS = [
     'wei',
     'kwei',
     'Mwei',
@@ -1792,11 +1792,11 @@ var TPC_UNITS = [
 ];
 
 module.exports = {
-    TPC_PADDING: 32,
-    TPC_SIGNATURE_LENGTH: 4,
-    TPC_UNITS: TPC_UNITS,
-    TPC_BIGNUMBER_ROUNDING_MODE: { ROUNDING_MODE: BigNumber.ROUND_DOWN },
-    TPC_POLLING_TIMEOUT: 1000/2,
+    THX_PADDING: 32,
+    THX_SIGNATURE_LENGTH: 4,
+    THX_UNITS: THX_UNITS,
+    THX_BIGNUMBER_ROUNDING_MODE: { ROUNDING_MODE: BigNumber.ROUND_DOWN },
+    THX_POLLING_TIMEOUT: 1000/2,
     defaultBlock: 'latest',
     defaultAccount: undefined
 };
@@ -7309,7 +7309,7 @@ RequestManager.prototype.reset = function (keepIsSyncing) {
  */
 RequestManager.prototype.poll = function () {
     /*jshint maxcomplexity: 6 */
-    this.timeout = setTimeout(this.poll.bind(this), c.TPC_POLLING_TIMEOUT);
+    this.timeout = setTimeout(this.poll.bind(this), c.THX_POLLING_TIMEOUT);
 
     if (Object.keys(this.polls).length === 0) {
         return;
