@@ -301,6 +301,8 @@ func (c *Console) AutoCompleteInput(line string, pos int) (string, []string, str
 func (c *Console) Welcome() {
 	message := "Welcome to the Sirius JavaScript console!\n\n"
 
+	message += " Testing at line 3944"
+
 	// Print some generic Geth metadata
 	if res, err := c.jsre.Run(`
 		var message = "instance: " + web3.version.node + "\n";

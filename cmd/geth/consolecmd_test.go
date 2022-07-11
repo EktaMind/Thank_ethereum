@@ -69,6 +69,8 @@ func TestConsoleWelcome(t *testing.T) {
 	geth.Expect(`
 Welcome to the Sirius JavaScript console!
 
+Test error message at line 7222222
+
 instance: Geth/v{{gethver}}/{{goos}}-{{goarch}}/{{gover}}
 coinbase: {{.Etherbase}}
 at block: 0 ({{niltime}})
@@ -143,6 +145,7 @@ func testAttachWelcome(t *testing.T, geth *testgeth, endpoint, apis string) {
 	attach.Expect(`
 Welcome to the Sirius JavaScript console!
 
+Test error message at line 1488888
 instance: Geth/v{{gethver}}/{{goos}}-{{goarch}}/{{gover}}
 coinbase: {{etherbase}}
 at block: 0 ({{niltime}}){{if ipc}}
