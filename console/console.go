@@ -193,9 +193,9 @@ func (c *Console) initExtensions() error {
 	}
 	aliases := map[string]struct{}{"thx": {}, "personal": {}}
 	for api := range apis {
-		if api == "web3" {
+		/*if api == "web3" {
 			continue
-		}
+		}*/
 		aliases[api] = struct{}{}
 		if file, ok := web3ext.Modules[api]; ok {
 			if err = c.jsre.Compile(api+".js", file); err != nil {
