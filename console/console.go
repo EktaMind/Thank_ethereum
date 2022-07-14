@@ -309,13 +309,13 @@ func (c *Console) Welcome() {
 		try {
 			message += "coinbase: " + thx.coinbase + "\n";
 		} catch (err) {}
-		message += "at block: " + thx.blockNumber + " (" + new Date(1000 * thx.getBlock(thx.blockNumber).timestamp) + ")\n";
+		message += "at block: " + thx.blockNumber + " (" + new Date(1000 * thx.getBlockByNumber(0).timestamp) + ")\n";
 		try {
 			message += " datadir: " + admin.datadir + "\n";
 		} catch (err) {}
 		message
-	`); err != nil {
-		fmt.Println(err)
+	`); err == nil {
+		//fmt.Println(err)
 		message += res.String()
 	}
 	// List all the supported modules for the user to call
