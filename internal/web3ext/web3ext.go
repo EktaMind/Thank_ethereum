@@ -589,181 +589,156 @@ web3._extend({
 			inputFormatter: [null, web3._extend.formatters.inputBlockNumberFormatter],
 		}),
 		new web3._extend.Method({
-        name: 'getStorageAt',
-        call: 'eth_getStorageAt',
-        params: 3,
-        inputFormatter: [null, utils.toHex, web3._extend.formatters.inputDefaultBlockNumberFormatter]
-    });
+	        name: 'getStorageAt',
+	        call: 'eth_getStorageAt',
+	        params: 3,
+	        inputFormatter: [null, utils.toHex, web3._extend.formatters.inputDefaultBlockNumberFormatter]
+	    }),
+	    new web3._extend.Method({
+	        name: 'getCode',
+	        call: 'eth_getCode',
+	        params: 2,
+	        inputFormatter: [web3._extend.formatters.inputAddressFormatter, web3._extend.formatters.inputDefaultBlockNumberFormatter]
+	    }),
+	    new web3._extend.Method({
+	        name: 'getBlock',
+	        call: 'eth_blockCall',
+	        params: 2,
+	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, function (val) { return !!val; }],
+	        outputFormatter: web3._extend.formatters.outputBlockFormatter
+	    }),
+	    new web3._extend.Method({
+	        name: 'getUncle',
+	        call: uncleCall,
+	        params: 2,
+	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, utils.toHex],
+	        outputFormatter: web3._extend.formatters.outputBlockFormatter,
 
-    new web3._extend.Method({
-        name: 'getCode',
-        call: 'eth_getCode',
-        params: 2,
-        inputFormatter: [web3._extend.formatters.inputAddressFormatter, web3._extend.formatters.inputDefaultBlockNumberFormatter]
-    });
-
-    new web3._extend.Method({
-        name: 'getBlock',
-        call: 'eth_blockCall',
-        params: 2,
-        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, function (val) { return !!val; }],
-        outputFormatter: web3._extend.formatters.outputBlockFormatter
-    });
-
-    new web3._extend.Method({
-        name: 'getUncle',
-        call: uncleCall,
-        params: 2,
-        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, utils.toHex],
-        outputFormatter: web3._extend.formatters.outputBlockFormatter,
-
-    });
-
-    new web3._extend.Method({
-        name: 'getCompilers',
-        call: 'eth_getCompilers',
-        params: 0
-    });
-
-    new web3._extend.Method({
-        name: 'getBlockTransactionCount',
-        call: getBlockTransactionCountCall,
-        params: 1,
-        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter],
-        outputFormatter: utils.toDecimal
-    });
-
-    new web3._extend.Method({
-        name: 'getBlockUncleCount',
-        call: uncleCountCall,
-        params: 1,
-        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter],
-        outputFormatter: utils.toDecimal
-    });
-
-    new web3._extend.Method({
-        name: 'getTransaction',
-        call: 'eth_getTransactionByHash',
-        params: 1,
-        outputFormatter: formatters.outputTransactionFormatter
-    });
-
-    new web3._extend.Method({
-        name: 'getTransactionFromBlock',
-        call: transactionFromBlockCall,
-        params: 2,
-        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, utils.toHex],
-        outputFormatter: formatters.outputTransactionFormatter
-    });
-
-    new web3._extend.new Method({
-        name: 'getTransactionReceipt',
-        call: 'eth_getTransactionReceipt',
-        params: 1,
-        outputFormatter: formatters.outputTransactionReceiptFormatter
-    });
-
-    new web3._extend.Method({
-        name: 'getTransactionCount',
-        call: 'eth_getTransactionCount',
-        params: 2,
-        inputFormatter: [null, web3._extend.formatters.inputDefaultBlockNumberFormatter],
-        outputFormatter: utils.toDecimal
-    });
-
-    new web3._extend.new Method({
-        name: 'sendRawTransaction',
-        call: 'eth_sendRawTransaction',
-        params: 1,
-        inputFormatter: [null]
-    });
-
-    new web3._extend.Method({
-        name: 'sendTransaction',
-        call: 'eth_sendTransaction',
-        params: 1,
-        inputFormatter: [formatters.inputTransactionFormatter]
-    });
-
+	    }),
+	    new web3._extend.Method({
+	        name: 'getCompilers',
+	        call: 'eth_getCompilers',
+	        params: 0
+	    }),
+	    new web3._extend.Method({
+	        name: 'getBlockTransactionCount',
+	        call: getBlockTransactionCountCall,
+	        params: 1,
+	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter],
+	        outputFormatter: utils.toDecimal
+	    }),
+	    new web3._extend.Method({
+	        name: 'getBlockUncleCount',
+	        call: uncleCountCall,
+	        params: 1,
+	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter],
+	        outputFormatter: utils.toDecimal
+	    }),
+	    new web3._extend.Method({
+	        name: 'getTransaction',
+	        call: 'eth_getTransactionByHash',
+	        params: 1,
+	        outputFormatter: formatters.outputTransactionFormatter
+	    }),
+	    new web3._extend.Method({
+	        name: 'getTransactionFromBlock',
+	        call: transactionFromBlockCall,
+	        params: 2,
+	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, utils.toHex],
+	        outputFormatter: formatters.outputTransactionFormatter
+	    }),
+	    new web3._extend.new Method({
+	        name: 'getTransactionReceipt',
+	        call: 'eth_getTransactionReceipt',
+	        params: 1,
+	        outputFormatter: formatters.outputTransactionReceiptFormatter
+	    }),
+	    new web3._extend.Method({
+	        name: 'getTransactionCount',
+	        call: 'eth_getTransactionCount',
+	        params: 2,
+	        inputFormatter: [null, web3._extend.formatters.inputDefaultBlockNumberFormatter],
+	        outputFormatter: utils.toDecimal
+	    }),
+	    new web3._extend.new Method({
+	        name: 'sendRawTransaction',
+	        call: 'eth_sendRawTransaction',
+	        params: 1,
+	        inputFormatter: [null]
+	    }),
+	    new web3._extend.Method({
+	        name: 'sendTransaction',
+	        call: 'eth_sendTransaction',
+	        params: 1,
+	        inputFormatter: [formatters.inputTransactionFormatter]
+	    }),
      
-    new web3._extend.Method({
-        name: 'call',
-        call: 'eth_call',
-        params: 2,
-        inputFormatter: [formatters.inputCallFormatter, web3._extend.formatters.inputDefaultBlockNumberFormatter]
-    });
-
-    
-    new web3._extend.Method({
-        name: 'compile.solidity',
-        call: 'eth_compileSolidity',
-        params: 1
-    });
-
-    new web3._extend.Method({
-        name: 'compile.lll',
-        call: 'eth_compileLLL',
-        params: 1
-    });
-
-    new web3._extend.Method({
-        name: 'compile.serpent',
-        call: 'eth_compileSerpent',
-        params: 1
-    });
-
-    new web3._extend.Method({
-        name: 'submitWork',
-        call: 'eth_submitWork',
-        params: 3
-    });
-
-    new web3._extend.Method({
-        name: 'getWork',
-        call: 'eth_getWork',
-        params: 0
-    });
-
-    new web3._extend.new Method({
-        name: 'getEvent',
-        call: 'thx_getEvent',
-        params: 2
-    });
-
-    new web3._extend.Method({
-        name: 'getEventHeader',
-        call: 'thx_getEventHeader',
-        params: 1
-    });
-
-    new web3._extend.Method({
-        name: 'getHeads',
-        call: 'thx_getHeads',
-        params: 1,
-        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter]
-    });
-
-    new web3._extend.Method({
-        name: 'getConsensusTime',
-        call: 'thx_getConsensusTime',
-        params: 1,
-        outputFormatter: utils.toDecimal
-    });
-
-    new web3._extend.Method({
-        name: 'currentEpoch',
-        call: 'thx_currentEpoch',
-        params: 0,
-        outputFormatter: utils.toDecimal
-    });
-
-    new web3._extend.new Method({
-        name: 'getEpochStats',
-        call: 'thx_getEpochStats',
-        params: 1,
-        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter],
-        outputFormatter: formatters.outputEpochStatsFormatter
-    });
+	    new web3._extend.Method({
+	        name: 'call',
+	        call: 'eth_call',
+	        params: 2,
+	        inputFormatter: [formatters.inputCallFormatter, web3._extend.formatters.inputDefaultBlockNumberFormatter]
+	    }),	    
+	    new web3._extend.Method({
+	        name: 'compile.solidity',
+	        call: 'eth_compileSolidity',
+	        params: 1
+	    }),
+	    new web3._extend.Method({
+	        name: 'compile.lll',
+	        call: 'eth_compileLLL',
+	        params: 1
+	    }),
+	    new web3._extend.Method({
+	        name: 'compile.serpent',
+	        call: 'eth_compileSerpent',
+	        params: 1
+	    }),
+	    new web3._extend.Method({
+	        name: 'submitWork',
+	        call: 'eth_submitWork',
+	        params: 3
+	    }),
+	    new web3._extend.Method({
+	        name: 'getWork',
+	        call: 'eth_getWork',
+	        params: 0
+	    }),
+	    new web3._extend.new Method({
+	        name: 'getEvent',
+	        call: 'thx_getEvent',
+	        params: 2
+	    }),
+	    new web3._extend.Method({
+	        name: 'getEventHeader',
+	        call: 'thx_getEventHeader',
+	        params: 1
+	    }),
+	    new web3._extend.Method({
+	        name: 'getHeads',
+	        call: 'thx_getHeads',
+	        params: 1,
+	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter]
+	    }),
+	    new web3._extend.Method({
+	        name: 'getConsensusTime',
+	        call: 'thx_getConsensusTime',
+	        params: 1,
+	        outputFormatter: utils.toDecimal
+	    }),
+	    new web3._extend.Method({
+	        name: 'currentEpoch',
+	        call: 'thx_currentEpoch',
+	        params: 0,
+	        outputFormatter: utils.toDecimal
+	    }),
+	    new web3._extend.new Method({
+	        name: 'getEpochStats',
+	        call: 'thx_getEpochStats',
+	        params: 1,
+	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter],
+	        outputFormatter: formatters.outputEpochStatsFormatter
+	    }),
 	],
 	properties: [
 		new web3._extend.Property({
