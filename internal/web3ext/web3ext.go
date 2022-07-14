@@ -590,7 +590,7 @@ web3._extend({
 		}),
 	    new web3._extend.Method({
 	        name: 'getBlock',
-	        call: blockCall,
+	        call: 'blockCall',
 	        params: 2,
 	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, function (val) { return !!val; }],
 	        outputFormatter: web3._extend.formatters.outputBigNumberFormatter
