@@ -94,7 +94,7 @@ func localConsole(ctx *cli.Context) error {
 
 	console, err := console.New(config)
 	if err != nil {
-		utils.Fatalf("Failed to start the JavaScript console: %v", err)
+		utils.Fatalf("Failed to start the JavaScript console 11111111111111: %v", err)
 	}
 	defer console.Stop(false)
 
@@ -153,7 +153,7 @@ func remoteConsole(ctx *cli.Context) error {
 
 	console, err := console.New(config)
 	if err != nil {
-		utils.Fatalf("Failed to start the JavaScript console: %v", err)
+		utils.Fatalf("Failed to start the JavaScript console abcccdd: %v", err)
 	}
 	defer console.Stop(false)
 
@@ -206,7 +206,7 @@ func ephemeralConsole(ctx *cli.Context) error {
 
 	console, err := console.New(config)
 	if err != nil {
-		utils.Fatalf("Failed to start the JavaScript console: %v", err)
+		utils.Fatalf("Failed to start the JavaScript console: 12343434  %v", err)
 	}
 	defer console.Stop(false)
 
