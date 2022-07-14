@@ -5614,7 +5614,7 @@ var methods = function () {
 
     var getBlock = new Method({
         name: 'getBlock',
-        call: 'eth_blockCall',
+        call: blockCall,
         params: 2,
         inputFormatter: [formatters.inputBlockNumberFormatter, function (val) { return !!val; }],
         outputFormatter: formatters.outputBlockFormatter
