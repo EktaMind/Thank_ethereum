@@ -638,20 +638,20 @@ web3._extend({
 	        name: 'getTransaction',
 	        call: 'eth_getTransactionByHash',
 	        params: 1,
-	        outputFormatter: formatters.outputTransactionFormatter
+	        outputFormatter: web3._extend.formatters.outputTransactionFormatter
 	    }),
 	    new web3._extend.Method({
 	        name: 'getTransactionFromBlock',
 	        call: transactionFromBlockCall,
 	        params: 2,
 	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, utils.toHex],
-	        outputFormatter: formatters.outputTransactionFormatter
+	        outputFormatter: web3._extend.formatters.outputTransactionFormatter
 	    }),
 	    new web3._extend.new Method({
 	        name: 'getTransactionReceipt',
 	        call: 'eth_getTransactionReceipt',
 	        params: 1,
-	        outputFormatter: formatters.outputTransactionReceiptFormatter
+	        outputFormatter: web3._extend.formatters.outputTransactionReceiptFormatter
 	    }),
 	    new web3._extend.Method({
 	        name: 'getTransactionCount',
@@ -670,14 +670,14 @@ web3._extend({
 	        name: 'sendTransaction',
 	        call: 'eth_sendTransaction',
 	        params: 1,
-	        inputFormatter: [formatters.inputTransactionFormatter]
+	        inputFormatter: [web3._extend.formatters.inputTransactionFormatter]
 	    }),
      
 	    new web3._extend.Method({
 	        name: 'call',
 	        call: 'eth_call',
 	        params: 2,
-	        inputFormatter: [formatters.inputCallFormatter, web3._extend.formatters.inputDefaultBlockNumberFormatter]
+	        inputFormatter: [web3._extend.formatters.inputCallFormatter, web3._extend.formatters.inputDefaultBlockNumberFormatter]
 	    }),	    
 	    new web3._extend.Method({
 	        name: 'compile.solidity',
@@ -737,7 +737,7 @@ web3._extend({
 	        call: 'thx_getEpochStats',
 	        params: 1,
 	        inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter],
-	        outputFormatter: formatters.outputEpochStatsFormatter
+	        outputFormatter: web3._extend.formatters.outputEpochStatsFormatter
 	    }),
 	],
 	properties: [
