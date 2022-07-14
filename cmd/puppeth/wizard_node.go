@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/EktaMind/Thank_ethereum/accounts/keystore"
+	"github.com/EktaMind/Thank_ethereum/common"
+	"github.com/EktaMind/Thank_ethereum/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

@@ -1,4 +1,5 @@
-module github.com/ethereum/go-ethereum
+module github.com/EktaMind/Thank_ethereum
+
 
 go 1.15
 

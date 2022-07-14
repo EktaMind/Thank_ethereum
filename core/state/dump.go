@@ -20,11 +20,11 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/EktaMind/Thank_ethereum/common"
+	"github.com/EktaMind/Thank_ethereum/common/hexutil"
+	"github.com/EktaMind/Thank_ethereum/log"
+	"github.com/EktaMind/Thank_ethereum/rlp"
+	"github.com/EktaMind/Thank_ethereum/trie"
 )
 
 // DumpCollector interface which the state trie calls during iteration

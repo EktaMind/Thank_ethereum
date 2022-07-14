@@ -21,8 +21,8 @@ import (
 	"bytes"
 	"encoding/binary"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/EktaMind/Thank_ethereum/common"
+	"github.com/EktaMind/Thank_ethereum/metrics"
 )
 
 // The fields below define the low level database schema prefixing.

@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/EktaMind/Thank_ethereum/core/state"
+	"github.com/EktaMind/Thank_ethereum/core/types"
+	"github.com/EktaMind/Thank_ethereum/params"
 )
 
 var (

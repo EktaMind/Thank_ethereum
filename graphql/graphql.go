@@ -24,16 +24,16 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/eth/filters"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/EktaMind/Thank_ethereum"
+	"github.com/EktaMind/Thank_ethereum/common"
+	"github.com/EktaMind/Thank_ethereum/common/hexutil"
+	"github.com/EktaMind/Thank_ethereum/core/rawdb"
+	"github.com/EktaMind/Thank_ethereum/core/state"
+	"github.com/EktaMind/Thank_ethereum/core/types"
+	"github.com/EktaMind/Thank_ethereum/core/vm"
+	"github.com/EktaMind/Thank_ethereum/eth/filters"
+	"github.com/EktaMind/Thank_ethereum/internal/ethapi"
+	"github.com/EktaMind/Thank_ethereum/rpc"
 )
 
 var (

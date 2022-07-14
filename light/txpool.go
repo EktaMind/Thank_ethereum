@@ -23,15 +23,15 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/EktaMind/Thank_ethereum/common"
+	"github.com/EktaMind/Thank_ethereum/core"
+	"github.com/EktaMind/Thank_ethereum/core/rawdb"
+	"github.com/EktaMind/Thank_ethereum/core/state"
+	"github.com/EktaMind/Thank_ethereum/core/types"
+	"github.com/EktaMind/Thank_ethereum/ethdb"
+	"github.com/EktaMind/Thank_ethereum/event"
+	"github.com/EktaMind/Thank_ethereum/log"
+	"github.com/EktaMind/Thank_ethereum/params"
 )
 
 const (

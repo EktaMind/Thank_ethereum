@@ -26,17 +26,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/bloombits"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/EktaMind/Thank_ethereum"
+	"github.com/EktaMind/Thank_ethereum/common"
+	"github.com/EktaMind/Thank_ethereum/consensus/ethash"
+	"github.com/EktaMind/Thank_ethereum/core"
+	"github.com/EktaMind/Thank_ethereum/core/bloombits"
+	"github.com/EktaMind/Thank_ethereum/core/rawdb"
+	"github.com/EktaMind/Thank_ethereum/core/types"
+	"github.com/EktaMind/Thank_ethereum/ethdb"
+	"github.com/EktaMind/Thank_ethereum/event"
+	"github.com/EktaMind/Thank_ethereum/params"
+	"github.com/EktaMind/Thank_ethereum/rpc"
 )
 
 var (

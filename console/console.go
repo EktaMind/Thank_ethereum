@@ -29,11 +29,11 @@ import (
 	"syscall"
 
 	"github.com/dop251/goja"
-	"github.com/ethereum/go-ethereum/console/prompt"
-	"github.com/ethereum/go-ethereum/internal/jsre"
-	"github.com/ethereum/go-ethereum/internal/jsre/deps"
-	"github.com/ethereum/go-ethereum/internal/web3ext"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/EktaMind/Thank_ethereum/console/prompt"
+	"github.com/EktaMind/Thank_ethereum/internal/jsre"
+	"github.com/EktaMind/Thank_ethereum/internal/jsre/deps"
+	"github.com/EktaMind/Thank_ethereum/internal/web3ext"
+	"github.com/EktaMind/Thank_ethereum/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 )
@@ -193,9 +193,9 @@ func (c *Console) initExtensions() error {
 	}
 	aliases := map[string]struct{}{"thx": {}, "personal": {}}
 	for api := range apis {
-		/*if api == "web3" {
+		if api == "web3" {
 			continue
-		}*/
+		}
 		aliases[api] = struct{}{}
 		if file, ok := web3ext.Modules[api]; ok {
 			if err = c.jsre.Compile(api+".js", file); err != nil {
