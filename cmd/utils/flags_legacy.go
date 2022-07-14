@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/EktaMind/Thank_ethereum/node"
+	"github.com/ethereum/go-ethereum/node"
 	"gopkg.in/urfave/cli.v1"
 )
 

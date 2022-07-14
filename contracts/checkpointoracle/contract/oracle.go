@@ -7,12 +7,12 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/EktaMind/Thank_ethereum"
-	"github.com/EktaMind/Thank_ethereum/accounts/abi"
-	"github.com/EktaMind/Thank_ethereum/accounts/abi/bind"
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/core/types"
-	"github.com/EktaMind/Thank_ethereum/event"
+	ethereum "github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/event"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

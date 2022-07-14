@@ -17,8 +17,8 @@
 package catalyst
 
 import (
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
 )
 
 //go:generate go run github.com/fjl/gencodec -type assembleBlockParams -field-override assembleBlockParamsMarshaling -out gen_blockparams.go

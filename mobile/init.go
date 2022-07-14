@@ -22,7 +22,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/EktaMind/Thank_ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 func init() {

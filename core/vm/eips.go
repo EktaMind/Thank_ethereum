@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/EktaMind/Thank_ethereum/params"
+	"github.com/ethereum/go-ethereum/params"
 	"github.com/holiman/uint256"
 )
 

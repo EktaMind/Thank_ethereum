@@ -21,13 +21,13 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/consensus/ethash"
-	"github.com/EktaMind/Thank_ethereum/core/rawdb"
-	"github.com/EktaMind/Thank_ethereum/core/types"
-	"github.com/EktaMind/Thank_ethereum/crypto"
-	"github.com/EktaMind/Thank_ethereum/params"
-	"github.com/EktaMind/Thank_ethereum/rlp"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/consensus/ethash"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rlp"
 	"golang.org/x/crypto/sha3"
 )
 

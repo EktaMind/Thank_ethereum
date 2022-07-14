@@ -19,7 +19,7 @@ package rpc
 import (
 	"fmt"
 
-	"github.com/EktaMind/Thank_ethereum/metrics"
+	"github.com/ethereum/go-ethereum/metrics"
 )
 
 var (

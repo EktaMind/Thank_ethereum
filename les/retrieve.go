@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/light"
+	"github.com/ethereum/go-ethereum/light"
 )
 
 var (

@@ -26,13 +26,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/consensus"
-	"github.com/EktaMind/Thank_ethereum/core/rawdb"
-	"github.com/EktaMind/Thank_ethereum/core/types"
-	"github.com/EktaMind/Thank_ethereum/ethdb"
-	"github.com/EktaMind/Thank_ethereum/log"
-	"github.com/EktaMind/Thank_ethereum/params"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/consensus"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/params"
 	lru "github.com/hashicorp/golang-lru"
 )
 

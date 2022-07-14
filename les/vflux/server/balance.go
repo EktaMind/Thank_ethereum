@@ -22,10 +22,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/common/mclock"
-	"github.com/EktaMind/Thank_ethereum/les/utils"
-	"github.com/EktaMind/Thank_ethereum/p2p/enode"
-	"github.com/EktaMind/Thank_ethereum/p2p/nodestate"
+	"github.com/ethereum/go-ethereum/common/mclock"
+	"github.com/ethereum/go-ethereum/les/utils"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/nodestate"
 )
 
 var errBalanceOverflow = errors.New("balance overflow")

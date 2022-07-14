@@ -19,14 +19,14 @@ package core
 import (
 	"fmt"
 
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/consensus"
-	"github.com/EktaMind/Thank_ethereum/consensus/misc"
-	"github.com/EktaMind/Thank_ethereum/core/state"
-	"github.com/EktaMind/Thank_ethereum/core/types"
-	"github.com/EktaMind/Thank_ethereum/core/vm"
-	"github.com/EktaMind/Thank_ethereum/crypto"
-	"github.com/EktaMind/Thank_ethereum/params"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/consensus"
+	"github.com/ethereum/go-ethereum/consensus/misc"
+	"github.com/ethereum/go-ethereum/core/state"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/core/vm"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 // StateProcessor is a basic Processor, which takes care of transitioning

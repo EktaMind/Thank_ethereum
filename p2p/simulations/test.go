@@ -19,10 +19,10 @@ package simulations
 import (
 	"testing"
 
-	"github.com/EktaMind/Thank_ethereum/p2p"
-	"github.com/EktaMind/Thank_ethereum/p2p/enode"
-	"github.com/EktaMind/Thank_ethereum/p2p/enr"
-	"github.com/EktaMind/Thank_ethereum/rpc"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/enr"
+	"github.com/ethereum/go-ethereum/rpc"
 )
 
 // NoopService is the service that does not do anything

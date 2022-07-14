@@ -21,13 +21,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/core/rawdb"
-	"github.com/EktaMind/Thank_ethereum/core/state"
-	"github.com/EktaMind/Thank_ethereum/crypto"
-	"github.com/EktaMind/Thank_ethereum/ethdb"
-	"github.com/EktaMind/Thank_ethereum/log"
-	"github.com/EktaMind/Thank_ethereum/trie"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"github.com/ethereum/go-ethereum/core/state"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/trie"
 	"golang.org/x/crypto/sha3"
 )
 

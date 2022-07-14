@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/EktaMind/Thank_ethereum"
-	"github.com/EktaMind/Thank_ethereum/event"
-	"github.com/EktaMind/Thank_ethereum/rpc"
+	"github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/event"
+	"github.com/ethereum/go-ethereum/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

@@ -25,13 +25,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum"
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/common/hexutil"
-	"github.com/EktaMind/Thank_ethereum/core/types"
-	"github.com/EktaMind/Thank_ethereum/ethdb"
-	"github.com/EktaMind/Thank_ethereum/event"
-	"github.com/EktaMind/Thank_ethereum/rpc"
+	"github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/event"
+	"github.com/ethereum/go-ethereum/rpc"
 )
 
 // filter is a helper struct that holds meta information over the filter type

@@ -25,15 +25,15 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/EktaMind/Thank_ethereum/accounts"
-	"github.com/EktaMind/Thank_ethereum/accounts/keystore"
-	"github.com/EktaMind/Thank_ethereum/accounts/scwallet"
-	"github.com/EktaMind/Thank_ethereum/accounts/usbwallet"
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/common/hexutil"
-	"github.com/EktaMind/Thank_ethereum/internal/ethapi"
-	"github.com/EktaMind/Thank_ethereum/log"
-	"github.com/EktaMind/Thank_ethereum/signer/storage"
+	"github.com/ethereum/go-ethereum/accounts"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/accounts/scwallet"
+	"github.com/ethereum/go-ethereum/accounts/usbwallet"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/internal/ethapi"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/signer/storage"
 )
 
 const (

@@ -6,9 +6,9 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/EktaMind/Thank_ethereum/common/hexutil"
-	"github.com/EktaMind/Thank_ethereum/common/math"
-	"github.com/EktaMind/Thank_ethereum/core/types"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/ethereum/go-ethereum/core/types"
 )
 
 var _ = (*stTransactionMarshaling)(nil)

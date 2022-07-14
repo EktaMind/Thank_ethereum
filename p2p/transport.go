@@ -25,10 +25,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/common/bitutil"
-	"github.com/EktaMind/Thank_ethereum/metrics"
-	"github.com/EktaMind/Thank_ethereum/p2p/rlpx"
-	"github.com/EktaMind/Thank_ethereum/rlp"
+	"github.com/ethereum/go-ethereum/common/bitutil"
+	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/ethereum/go-ethereum/p2p/rlpx"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 const (

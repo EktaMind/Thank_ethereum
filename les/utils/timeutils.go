@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/common/mclock"
+	"github.com/ethereum/go-ethereum/common/mclock"
 )
 
 type UpdateTimer struct {

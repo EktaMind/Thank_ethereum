@@ -21,8 +21,8 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/event"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/event"
 )
 
 // Config contains the settings of the global account manager.

@@ -20,7 +20,7 @@ import (
 	"math"
 	"math/rand"
 
-	"github.com/EktaMind/Thank_ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 type (

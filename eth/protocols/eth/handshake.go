@@ -21,9 +21,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/core/forkid"
-	"github.com/EktaMind/Thank_ethereum/p2p"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/forkid"
+	"github.com/ethereum/go-ethereum/p2p"
 )
 
 const (

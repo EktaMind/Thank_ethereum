@@ -20,7 +20,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/EktaMind/Thank_ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // StartIPCEndpoint starts an IPC endpoint.

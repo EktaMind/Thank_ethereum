@@ -21,8 +21,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/common/mclock"
-	"github.com/EktaMind/Thank_ethereum/les/utils"
+	"github.com/ethereum/go-ethereum/common/mclock"
+	"github.com/ethereum/go-ethereum/les/utils"
 )
 
 // requestDistributor implements a mechanism that distributes requests to

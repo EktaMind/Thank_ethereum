@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/params"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 const (

@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EktaMind/Thank_ethereum/p2p"
-	"github.com/EktaMind/Thank_ethereum/rpc"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/rpc"
 )
 
 type gethrpc struct {

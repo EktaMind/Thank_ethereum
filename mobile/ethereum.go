@@ -21,8 +21,8 @@ package geth
 import (
 	"errors"
 
-	"github.com/EktaMind/Thank_ethereum"
-	"github.com/EktaMind/Thank_ethereum/common"
+	"github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // Subscription represents an event subscription where events are

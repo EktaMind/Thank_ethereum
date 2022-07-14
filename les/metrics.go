@@ -17,8 +17,8 @@
 package les
 
 import (
-	"github.com/EktaMind/Thank_ethereum/metrics"
-	"github.com/EktaMind/Thank_ethereum/p2p"
+	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/ethereum/go-ethereum/p2p"
 )
 
 var (

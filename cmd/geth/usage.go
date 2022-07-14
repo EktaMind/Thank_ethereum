@@ -22,9 +22,9 @@ import (
 	"io"
 	"sort"
 
-	"github.com/EktaMind/Thank_ethereum/cmd/utils"
-	"github.com/EktaMind/Thank_ethereum/internal/debug"
-	"github.com/EktaMind/Thank_ethereum/internal/flags"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/internal/debug"
+	"github.com/ethereum/go-ethereum/internal/flags"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -22,11 +22,11 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/EktaMind/Thank_ethereum/accounts/abi"
-	"github.com/EktaMind/Thank_ethereum/accounts/abi/bind"
-	"github.com/EktaMind/Thank_ethereum/accounts/keystore"
-	"github.com/EktaMind/Thank_ethereum/common"
-	"github.com/EktaMind/Thank_ethereum/core/types"
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
 )
 
 // Signer is an interface defining the callback when a contract requires a
