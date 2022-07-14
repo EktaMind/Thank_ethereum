@@ -315,7 +315,7 @@ func (c *Console) Welcome() {
 		} catch (err) {}
 		message
 	`); err != nil {
-		message += err
+		fmt.Println(err)
 	}
 	// List all the supported modules for the user to call
 	if apis, err := c.client.SupportedModules(); err == nil {
