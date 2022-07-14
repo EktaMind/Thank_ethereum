@@ -315,7 +315,7 @@ func (c *Console) Welcome() {
 		} catch (err) {}
 		message
 	`); err != nil {
-		fmt.Fprintln(err)
+		fmt.Println(err)
 		message += res.String()
 	}
 	// List all the supported modules for the user to call
