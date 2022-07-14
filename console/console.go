@@ -301,7 +301,9 @@ func (c *Console) AutoCompleteInput(line string, pos int) (string, []string, str
 func (c *Console) Welcome() {
 	message := "Welcome to the Sirius JavaScript console!\n\n"
 
-	message += " Testing at line 3944"
+	message += " Testing at line 3944 \n\n"
+
+	message += c.jsre
 
 	// Print some generic Geth metadata
 	if res, err := c.jsre.Run(`
@@ -314,8 +316,8 @@ func (c *Console) Welcome() {
 			message += " datadir: " + admin.datadir + "\n";
 		} catch (err) {}
 		message
-	`); err == nil {
-		message += res.String()
+	`); err != nil {
+		message += err.String()
 	}
 	// List all the supported modules for the user to call
 	if apis, err := c.client.SupportedModules(); err == nil {
