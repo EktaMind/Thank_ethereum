@@ -303,8 +303,6 @@ func (c *Console) Welcome() {
 
 	message += " Testing at line 3944 \n\n"
 
-	message += c.jsre
-
 	// Print some generic Geth metadata
 	if res, err := c.jsre.Run(`
 		var message = "instance: " + web3.version.node + "\n";
@@ -317,7 +315,7 @@ func (c *Console) Welcome() {
 		} catch (err) {}
 		message
 	`); err != nil {
-		message += err.String()
+		message += err
 	}
 	// List all the supported modules for the user to call
 	if apis, err := c.client.SupportedModules(); err == nil {
